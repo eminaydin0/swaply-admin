@@ -12,6 +12,7 @@ import {
   FileTextOutlined,
   SettingOutlined,
   BulbOutlined,
+  GiftOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu, Button, Space, Switch, Typography, theme } from 'antd';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
@@ -103,6 +104,11 @@ const MainLayout: React.FC = () => {
               key: '/vitrin',
               icon: <CrownOutlined />,
               label: 'Vitrin / Premium',
+            },
+            {
+              key: '/banners',
+              icon: <GiftOutlined />,
+              label: 'Banner Yönetimi',
             },
             {
               key: '/chats',

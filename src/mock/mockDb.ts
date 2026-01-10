@@ -14,6 +14,7 @@ import type {
   Category,
   NotificationType,
   ReportCategory,
+  Banner,
 } from '../types/models';
 
 export interface MockDb {
@@ -22,6 +23,8 @@ export interface MockDb {
   users: User[];
   products: Product[];
   offers: SwapOffer[];
+  banners: Banner[];
+
   threads: ChatThread[];
   messages: ChatMessage[];
   notifications: NotificationItem[];
@@ -618,8 +621,42 @@ export function createMockDb(options?: {
     count: faker.number.int({ min: 5, max: 140 }),
   }));
 
+  const banners: Banner[] = [
+      {
+          id: 1,
+          title: 'Yaz Sonu İndirimi',
+          description: 'Seçili ürünlerde %30 varan takas avantajı!',
+          imageUrl: 'https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&q=80&w=800',
+          startDate: dayjs().subtract(5, 'day').format(),
+          endDate: dayjs().add(10, 'day').format(),
+          isActive: true,
+          priority: 1
+      },
+      {
+          id: 2,
+          title: 'Elektronik Günleri',
+          description: 'Eski telefonunu getir, yenisini götür.',
+          imageUrl: 'https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&q=80&w=800',
+          startDate: dayjs().subtract(1, 'day').format(),
+          endDate: dayjs().add(5, 'day').format(),
+          isActive: true,
+          priority: 2
+      },
+       {
+          id: 3,
+          title: 'Kışa Hazırlık',
+          description: 'Kışlık giysilerde takas şenliği başladı.',
+          imageUrl: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&q=80&w=800',
+          startDate: dayjs().add(2, 'day').format(),
+          endDate: dayjs().add(20, 'day').format(),
+          isActive: false,
+          priority: 0
+      }
+  ];
+
   return {
     seed,
+    banners,
     categories,
     users,
     products,

@@ -12,6 +12,7 @@ import Chats from './pages/Chats';
 import ChatThread from './pages/ChatThread';
 import Notifications from './pages/Notifications';
 import Reports from './pages/Reports';
+import Banners from './pages/Banners';
 import './App.css';
 
 const App: React.FC = () => {
@@ -24,6 +25,7 @@ const App: React.FC = () => {
         <Route path="listings" element={<Listings />} />
         <Route path="offers" element={<Offers />} />
         <Route path="vitrin" element={<Vitrin />} />
+        <Route path="banners" element={<Banners />} />
         <Route path="chats" element={<Chats />} />
         <Route path="chats/:threadId" element={<ChatThread />} />
         <Route path="notifications" element={<Notifications />} />

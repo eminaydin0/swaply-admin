@@ -3,13 +3,18 @@ import type {
   MockDb,
 } from '../mock/mockDb';
 import { createMockDb } from '../mock/mockDb';
-import type { Product, SwapOffer, User } from '../types/models';
+import type { Product, SwapOffer, User, Banner } from '../types/models';
 
 interface MockState {
   db: MockDb;
 
   // actions (mock moderation/admin operations)
   regenerate: () => void;
+  // Banners
+  addBanner: (c: Banner) => void;
+  updateBanner: (id: string | number, p: Partial<Banner>) => void;
+  deleteBanner: (id: string | number) => void;
+
   toggleUserVerified: (userId: string | number) => void;
   banUser: (userId: string | number) => void;
   unbanUser: (userId: string | number) => void;
@@ -39,6 +44,15 @@ export const useMockStore = create<MockState>((set) => ({
   db: createMockDb(),
 
   regenerate: () => set({ db: createMockDb() }),
+
+  addBanner: (c) => set((state) => ({ db: { ...state.db, banners: [c, ...state.db.banners] } })),
+  updateBanner: (id, p) => set((state) => ({
+    db: {
+      ...state.db,
+      banners: state.db.banners.map((c) => (String(c.id) === String(id) ? { ...c, ...p } : c)),
+    },
+  })),
+  deleteBanner: (id) => set((state) => ({ db: { ...state.db, banners: state.db.banners.filter((c) => String(c.id) !== String(id)) } })),
 
   toggleUserVerified: (userId) =>
     set((state) => ({

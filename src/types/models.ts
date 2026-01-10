@@ -1,4 +1,4 @@
-export interface User {
+﻿export interface User {
   id: string | number;
 
   // Identity
@@ -255,3 +255,29 @@ export interface TrustScore {
 }
 
 export type ThemePreference = 'dark' | 'light';
+
+export interface Banner {
+  id: string | number;
+  title: string;
+  description: string;
+  imageUrl: string;
+  targetUrl?: string; // e.g. deep link or website
+  startDate: string;
+  endDate: string;
+  isActive: boolean;
+  priority: number;
+}
+
+
+
+export interface Campaign {
+  id: string | number;
+  title: string;
+  description?: string;
+  imageUrl: string;
+  targetScreen?: string;
+  startDate: string;
+  endDate: string;
+  isActive: boolean;
+  priority: number;
+}
