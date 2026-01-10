@@ -90,7 +90,7 @@ const Listings: React.FC = () => {
               <Image width={56} height={56} src={r.imageUrl} style={{ borderRadius: 6, objectFit: 'cover' }} /> : 
               <div style={{ width: 56, height: 56, background: '#f5f5f5', borderRadius: 6, display:'flex', alignItems:'center', justifyContent:'center' }}><Text type="secondary" style={{fontSize: 10}}>Yok</Text></div>
            }
-           <Space orientation="vertical" size={2} style={{ maxWidth: 300 }}>
+           <Space direction="vertical" size={2} style={{ maxWidth: 300 }}>
              <Text strong ellipsis style={{ maxWidth: 280 }}>{r.name}</Text>
              <Space size={6} separator={<Text type="secondary">•</Text>}>
                 <Text type="secondary" style={{ fontSize: 13 }}>{r.categoryName}</Text>
@@ -112,7 +112,7 @@ const Listings: React.FC = () => {
         return (
           <Space size={10}>
             <Avatar src={u.avatar} />
-            <Space orientation="vertical" size={0}>
+            <Space direction="vertical" size={0}>
               <Text ellipsis style={{ maxWidth: 160 }}>{u.fullName}</Text>
               <Text type="secondary" style={{ fontSize: 12 }}>@{u.username}</Text>
             </Space>
@@ -209,7 +209,7 @@ const Listings: React.FC = () => {
 
   return (
     <div>
-      <Space orientation="vertical" style={{ width: '100%' }} size="large">
+      <Space direction="vertical" style={{ width: '100%' }} size="large">
         <Space style={{ justifyContent: 'space-between', width: '100%' }}>
           <Typography.Title level={3} style={{ margin: 0 }}>İlanlar</Typography.Title>
           <Input.Search
@@ -253,7 +253,7 @@ const Listings: React.FC = () => {
         width={720}
       >
         {selected && (
-          <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
+          <Space direction="vertical" size="middle" style={{ width: '100%' }}>
             <Space wrap>
               {statusTag(computeListingStatus(selected))}
               {selected.premium ? <Tag color="purple">PREMIUM</Tag> : <Tag>NORMAL</Tag>}

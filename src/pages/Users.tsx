@@ -95,7 +95,7 @@ const Users: React.FC = () => {
       render: (_value, r) => (
         <Space size={12}>
           <Avatar src={r.avatar} size={36} />
-          <Space orientation="vertical" size={0}>
+          <Space direction="vertical" size={0}>
             <Typography.Text ellipsis>{r.fullName}</Typography.Text>
             <Typography.Text type="secondary" ellipsis>@{r.username}</Typography.Text>
             <Typography.Text type="secondary" ellipsis>{r.email}</Typography.Text>
@@ -176,7 +176,7 @@ const Users: React.FC = () => {
 
   return (
     <div>
-      <Space orientation="vertical" style={{ width: '100%' }} size="large">
+      <Space direction="vertical" style={{ width: '100%' }} size="large">
         <Space style={{ justifyContent: 'space-between', width: '100%' }}>
           <Typography.Title level={3} style={{ margin: 0 }}>Kullanıcılar</Typography.Title>
           <Input.Search
@@ -196,7 +196,7 @@ const Users: React.FC = () => {
           onChange={(p) => setPagination(p)}
           expandable={{
             expandedRowRender: (r) => (
-              <Space orientation="vertical" size={4} style={{ width: '100%' }}>
+              <Space direction="vertical" size={4} style={{ width: '100%' }}>
                 <Typography.Text type="secondary">
                   E-posta: {r.email} · Telefon: {r.phone} · Konum: {r.location}
                 </Typography.Text>

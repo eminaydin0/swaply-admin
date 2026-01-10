@@ -65,7 +65,7 @@ const Chats: React.FC = () => {
            <Badge dot={r.isOnline} color="green" offset={[-6, 26]}>
               <Avatar src={r.otherAvatar} size={40} />
            </Badge>
-           <Space orientation="vertical" size={0}>
+           <Space direction="vertical" size={0}>
               <Text strong>{r.otherName}</Text>
               <Text type="secondary" style={{fontSize: 12}}>@{r.otherUsername}</Text>
            </Space>
@@ -95,7 +95,7 @@ const Chats: React.FC = () => {
         key: 'lastMessage', 
         width: 300,
         render: (_v, r) => (
-            <Space orientation="vertical" size={2} style={{width:'100%'}}>
+            <Space direction="vertical" size={2} style={{width:'100%'}}>
                  <Text ellipsis style={{maxWidth: 280, color: r.unreadCount > 0 ? '#000' : '#666', fontWeight: r.unreadCount > 0 ? 600 : 400}}>
                      {r.lastMessageText}
                  </Text>
@@ -129,7 +129,7 @@ const Chats: React.FC = () => {
 
   return (
     <div>
-      <Space orientation="vertical" style={{ width: '100%' }} size="large">
+      <Space direction="vertical" style={{ width: '100%' }} size="large">
         <Space style={{ justifyContent: 'space-between', width: '100%' }}>
             <Typography.Title level={3} style={{ margin: 0 }}>Sohbetler</Typography.Title>
             <Input.Search
@@ -151,7 +151,7 @@ const Chats: React.FC = () => {
         width={500}
       >
         {selected && (
-            <Space orientation="vertical" size="large" style={{ width: '100%' }}>
+            <Space direction="vertical" size="large" style={{ width: '100%' }}>
                 <Space align="start">
                     <Avatar size={64} src={selected.otherAvatar} />
                     <div>

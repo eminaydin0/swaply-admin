@@ -30,7 +30,7 @@ const StatCard: React.FC<{
   trend?: string;
 }> = ({ title, value, icon, color, suffix, trend }) => (
   <Card bordered={false} style={{ height: '100%', boxShadow: '0 2px 8px rgba(0,0,0,0.04)', borderRadius: 8 }}>
-    <Space orientation="vertical" style={{ width: '100%' }} size={4}>
+    <Space direction="vertical" style={{ width: '100%' }} size={4}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
         <Text type="secondary" style={{ fontSize: 13, fontWeight: 500 }}>{title}</Text>
         <Avatar shape="square" size="small" icon={icon} style={{ backgroundColor: `${color}15`, color: color }} />

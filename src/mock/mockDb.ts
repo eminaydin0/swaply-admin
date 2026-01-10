@@ -48,6 +48,67 @@ const CATEGORY_SEED: Category[] = [
   { id: 8, name: 'Anne & Bebek', icon: 'baby', color: '#ff85c0', slug: 'anne-bebek' },
 ];
 
+const TURKISH_SENTENCES = [
+  "Merhaba, bu ürün hala satılık mı?",
+  "Son fiyat ne olur?",
+  "Takas düşünür müsünüz?",
+  "Ürünün garantisi devam ediyor mu?",
+  "Bugün kargoya verebilir misiniz?",
+  "İstanbul içi elden teslim alabilirim.",
+  "Biraz indirim yapabilirseniz hemen alacağım.",
+  "Ürünün daha net fotoğraflarını gönderebilir misiniz?",
+  "Teşekkürler, iyi satışlar.",
+  "Tam aradığım model, ayırabilir misiniz?",
+  "Merhaba, takas teklifimi gördünüz mü?",
+  "Kutusu ve faturası var mı?",
+  "Neden satıyorsunuz acaba?",
+  "Ciddi alıcıyım, dönüş yapar mısınız?",
+  "Profilimdeki ürünlerle takas olur mu?"
+];
+
+const TURKISH_DESCRIPTIONS = [
+  "Ürün çok temiz kullanılmıştır, hiçbir çiziği yoktur. Kutusu ve faturası mevcuttur. İhtiyaç fazlası olduğu için satıyorum.",
+  "Sıfır ayarında, sadece birkaç kez kullanıldı. Garantisi devam etmektedir. Alıcısına şimdiden hayırlı olsun.",
+  "Ufak tefek kullanım izleri mevcuttur ancak çalışmasına engel değildir. Fiyatı bu yüzden uygun tuttum.",
+  "Yurtdışından hediye geldi, pasaport kaydı yapılmıştır. Yanında kılıfı hediye edilecektir. Pazarlık payı vardır.",
+  "Acil nakit ihtiyacından dolayı satılıktır. Takas teklif etmeyiniz. Sadece ciddi alıcılar yazsın.",
+  "Kozmetik olarak 10/9 durumdadır. Bataryası yeni değişti. Sorunsuz çalışıyor.",
+  "Taşınma sebebiyle eşyalarımı satıyorum. Diğer ilanlarıma da bakabilirsiniz. Toplu alımda indirim yaparım.",
+  "Ürünü anlatmaya gerek yok, bilen bilir. Tertemiz collectors item."
+];
+
+const TURKISH_REPORT_MESSAGES = [
+  "Bu kullanıcı dolandırıcı olabilir, ödemeyi yaptım ama ürünü göndermedi.",
+  "İlandaki fotoğraflar ürünün kendisine ait değil, internetten alınmış.",
+  "Uygunsuz içerik ve küfürlü konuşmalar içeriyor.",
+  "Ürün açıklamasında yanıltıcı bilgiler var.",
+  "Sürekli spam mesajlar atıyor, rahatsız ediliyorum.",
+  "Kargo ücretini ben ödememe rağmen karşı ödemeli gönderdi.",
+  "Ürün orijinal değil, replika ürün satmaya çalışıyor."
+];
+
+const TURKISH_SUGGESTION_MESSAGES = [
+  "Uygulamaya karanlık mod gelmeli, akşamları göz yoruyor.",
+  "Mesajlarda sesli mesaj özelliği olsa çok iyi olur.",
+  "İlanlara video ekleme özelliği getirilmeli.",
+  "Kargo entegrasyonu yapılarak takip numarası otomatik düşmeli.",
+  "Daha fazla kategori eklenmeli, mesela enstrümanlar.",
+  "Favoriye eklediğim ürünlerin fiyatı düşünce bildirim gelsin.",
+  "Profilime kapak fotoğrafı eklemek istiyorum.",
+  "Harita üzerinden ilan arama özelliği çok kullanışlı olurdu."
+];
+
+const TURKISH_BIOS = [
+  "Teknoloji meraklısı, dürüst satıcı.",
+  "Sadece İstanbul içi elden teslim.",
+  "Takas tekliflerine açığım.",
+  "Her türlü elektronik ürün alınır satılır.",
+  "Güvenilir alışveriş.",
+  "Hızlı kargo, özenli paketleme.",
+  "Bana sormadan ürün almayın.",
+  "Öğrenciyim, uygun fiyata bırakıyorum."
+];
+
 function pick<T>(arr: T[]): T {
   return arr[faker.number.int({ min: 0, max: arr.length - 1 })]!;
 }
@@ -208,7 +269,7 @@ export function createMockDb(options?: {
       email: faker.internet.email({ firstName, lastName }).toLowerCase(),
       phone: `+90 5${faker.number.int({ min: 0, max: 9 })}${faker.number.int({ min: 100, max: 999 })} ${faker.number.int({ min: 100, max: 999 })} ${faker.number.int({ min: 10, max: 99 })} ${faker.number.int({ min: 10, max: 99 })}`,
       avatar: faker.image.avatar(),
-      bio: faker.lorem.sentence(),
+      bio: pick(TURKISH_BIOS),
       location: `${city}, ${COUNTRY}`,
       city,
       country: COUNTRY,
@@ -252,7 +313,7 @@ export function createMockDb(options?: {
       ownerId: owner.id,
       userId: owner.id,
       name: makeProductTitle(category.name),
-      description: faker.lorem.paragraph(),
+      description: pick(TURKISH_DESCRIPTIONS),
       price: faker.datatype.boolean({ probability: 0.35 }) ? null : faker.number.int({ min: 200, max: 60000 }),
       currency: 'TL',
       categoryId: category.id,
@@ -350,7 +411,7 @@ export function createMockDb(options?: {
       targetProductId: targetProduct.id,
       offeredProductId: offeredProduct.id,
       status,
-      message: faker.lorem.sentence(),
+      message: pick(TURKISH_SENTENCES),
       createdAt,
       updatedAt: createdAt,
       initiatorOnline: initiator.onlineStatus,
@@ -443,7 +504,7 @@ export function createMockDb(options?: {
       id: `m_${i + 1}`,
       threadId,
       senderUserId,
-      text: faker.lorem.sentence(),
+      text: pick(TURKISH_SENTENCES),
       images: hasImage ? makeImageUrls(faker.number.int({ min: 1, max: 2 })) : undefined,
       time,
       isRead: faker.datatype.boolean({ probability: 0.75 }),
@@ -501,7 +562,7 @@ export function createMockDb(options?: {
                 : type === 'new_message'
                   ? 'Yeni Mesaj'
                   : 'Favori Güncellendi',
-      message: faker.lorem.sentence(),
+      message: pick(TURKISH_SENTENCES),
       time: isoDaysAgo(faker.number.int({ min: 0, max: 10 })),
       isRead: faker.datatype.boolean({ probability: 0.6 }),
       userId: user.id,
@@ -513,18 +574,22 @@ export function createMockDb(options?: {
 
   // Reports
   const reports: ReportItem[] = [];
-  const reportCategories: ReportCategory[] = ['bug', 'user', 'product', 'payment', 'other'];
+  const reportCategories: ReportCategory[] = ['bug', 'user', 'product', 'payment', 'other', 'suggestion'];
 
   for (let i = 0; i < reportsCount; i += 1) {
     const category = pick(reportCategories);
     const reporter = pick(users);
     const targetUser = faker.datatype.boolean({ probability: 0.55 }) ? pick(users.filter((u) => u.id !== reporter.id)) : undefined;
     const targetProduct = faker.datatype.boolean({ probability: 0.45 }) ? pick(products) : undefined;
+    
+    let messageStr = faker.lorem.paragraph();
+    if (category === 'suggestion') messageStr = pick(TURKISH_SUGGESTION_MESSAGES);
+    else messageStr = pick(TURKISH_REPORT_MESSAGES);
 
     reports.push({
       id: `r_${i + 1}`,
       category,
-      message: faker.lorem.paragraph(),
+      message: messageStr,
       createdAt: isoDaysAgo(faker.number.int({ min: 0, max: 40 })),
       reporterUserId: reporter.id,
       targetUserId: targetUser?.id,

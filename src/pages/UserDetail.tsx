@@ -4,6 +4,12 @@ import { ArrowLeftOutlined } from '@ant-design/icons';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useMockStore } from '../stores/mockStore';
 
+function roleLabel(role: string) {
+  if (role === 'admin') return 'YÖNETİCİ';
+  if (role === 'moderator') return 'MODERATÖR';
+  return 'KULLANICI';
+}
+
 const UserDetail: React.FC = () => {
   const { userId } = useParams();
   const navigate = useNavigate();
@@ -35,7 +41,7 @@ const UserDetail: React.FC = () => {
   }
 
   return (
-    <Space orientation="vertical" size="large" style={{ width: '100%' }}>
+    <Space direction="vertical" size="large" style={{ width: '100%' }}>
       <div style={{ display: 'flex', alignItems: 'flex-start', gap: 16 }}>
         <Button 
             icon={<ArrowLeftOutlined />} 
@@ -45,7 +51,7 @@ const UserDetail: React.FC = () => {
             title="Listeye Dön"
             style={{ marginTop: 4 }}
         />
-        <Space orientation="vertical" size={0}>
+        <Space direction="vertical" size={0}>
             <Typography.Title level={3} style={{ margin: 0 }}>{user.fullName}</Typography.Title>
             <Typography.Text type="secondary">{user.username} • {user.email}</Typography.Text>
         </Space>
@@ -59,7 +65,7 @@ const UserDetail: React.FC = () => {
             children: (
               <Card>
                 <Descriptions column={2} bordered size="small">
-                  <Descriptions.Item label="Rol">{user.role}</Descriptions.Item>
+                  <Descriptions.Item label="Rol">{roleLabel(user.role)}</Descriptions.Item>
                   <Descriptions.Item label="Doğrulandı">{user.verified ? <Tag color="green">EVET</Tag> : <Tag>HAYIR</Tag>}</Descriptions.Item>
                   <Descriptions.Item label="Çevrimiçi">{user.onlineStatus ? <Tag color="green">AÇIK</Tag> : <Tag>KAPALI</Tag>}</Descriptions.Item>
                   <Descriptions.Item label="Premium">{user.isPremium ? <Tag color="purple">EVET</Tag> : <Tag>HAYIR</Tag>}</Descriptions.Item>

@@ -117,7 +117,7 @@ const MainLayout: React.FC = () => {
             {
               key: '/reports',
               icon: <FileTextOutlined />,
-              label: 'Raporlar',
+              label: 'Şikayet & Öneri',
             },
             {
               key: '/settings',

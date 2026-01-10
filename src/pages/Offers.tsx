@@ -76,7 +76,7 @@ const Offers: React.FC = () => {
       render: (_value, r) => (
         <Space>
            {r.initiator ? <Avatar src={r.initiator.avatar} /> : <Avatar>U</Avatar>}
-           <Space orientation="vertical" size={0}>
+           <Space direction="vertical" size={0}>
               <Text strong>{r.initiator?.fullName ?? 'Bilinmiyor'}</Text>
               <Text type="secondary" style={{fontSize: 12}}>@{r.initiator?.username ?? ''}</Text>
            </Space>
@@ -91,7 +91,7 @@ const Offers: React.FC = () => {
       render: (_value, r) => (
         <Space>
            {r.targetUser ? <Avatar src={r.targetUser.avatar} /> : <Avatar>U</Avatar>}
-           <Space orientation="vertical" size={0}>
+           <Space direction="vertical" size={0}>
               <Text strong>{r.targetUser?.fullName ?? 'Bilinmiyor'}</Text>
               <Text type="secondary" style={{fontSize: 12}}>@{r.targetUser?.username ?? ''}</Text>
            </Space>
@@ -110,7 +110,7 @@ const Offers: React.FC = () => {
                       <Image width={40} height={40} src={r.offeredProduct.imageUrl} style={{borderRadius: 4, objectFit:'cover'}} /> :
                       <div style={{width: 40, height: 40, background:'#eee', borderRadius:4}} />
                     }
-                    <Space orientation="vertical" size={0}>
+                    <Space direction="vertical" size={0}>
                         <Text ellipsis style={{maxWidth: 140}}>{r.offeredProduct?.name || 'Silinmiş Ürün'}</Text>
                         <Tag style={{margin:0, fontSize:10}}>Teklif Edilen</Tag>
                     </Space>
@@ -123,7 +123,7 @@ const Offers: React.FC = () => {
                       <Image width={40} height={40} src={r.targetProduct.imageUrl} style={{borderRadius: 4, objectFit:'cover'}} /> :
                       <div style={{width: 40, height: 40, background:'#eee', borderRadius:4}} />
                     }
-                    <Space orientation="vertical" size={0}>
+                    <Space direction="vertical" size={0}>
                         <Text ellipsis style={{maxWidth: 140}}>{r.targetProduct?.name || 'Silinmiş Ürün'}</Text>
                         <Tag style={{margin:0, fontSize:10}}>İstenen</Tag>
                     </Space>
@@ -209,7 +209,7 @@ const Offers: React.FC = () => {
 
   return (
     <div>
-      <Space orientation="vertical" style={{ width: '100%' }} size="large">
+      <Space direction="vertical" style={{ width: '100%' }} size="large">
         <Space style={{ justifyContent: 'space-between', width: '100%' }}>
             <Typography.Title level={3} style={{ margin: 0 }}>Teklifler</Typography.Title>
             <Input.Search
@@ -250,7 +250,7 @@ const Offers: React.FC = () => {
         width={600}
       >
         {selected && (
-           <Space orientation="vertical" size="large" style={{width:'100%'}}>
+           <Space direction="vertical" size="large" style={{width:'100%'}}>
                <div style={{display:'flex', justifyContent:'space-between', borderBottom:'1px solid #eee', paddingBottom: 16}}>
                    <div>
                        <Text type="secondary" style={{fontSize:12}}>TEKLİF EDİLEN</Text>

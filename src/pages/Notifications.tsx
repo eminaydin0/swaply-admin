@@ -84,7 +84,7 @@ const Notifications: React.FC = () => {
            return (
                <Space>
                    <Avatar src={r.user.avatar} />
-                   <Space orientation="vertical" size={0}>
+                   <Space direction="vertical" size={0}>
                        <Text strong>{r.user.fullName}</Text>
                        <Text type="secondary" style={{fontSize: 12}}>@{r.user.username}</Text>
                    </Space>
@@ -99,7 +99,7 @@ const Notifications: React.FC = () => {
       render: (_v, r) => {
           const typeInfo = notificationTypeLabel(r.type);
           return (
-              <Space orientation="vertical" size={4} style={{width: '100%'}}>
+              <Space direction="vertical" size={4} style={{width: '100%'}}>
                   <Space>
                       <Tag color={typeInfo.color} style={{ margin: 0, fontSize: 10 }}>{typeInfo.label}</Tag>
                       <Text strong style={{ fontSize: 13 }}>{r.title}</Text>
@@ -144,7 +144,7 @@ const Notifications: React.FC = () => {
 
   return (
     <div>
-      <Space orientation="vertical" style={{ width: '100%' }} size="large">
+      <Space direction="vertical" style={{ width: '100%' }} size="large">
         <Space style={{ justifyContent: 'space-between', width: '100%' }}>
           <Typography.Title level={3} style={{ margin: 0 }}>Bildirimler</Typography.Title>
           <Input.Search

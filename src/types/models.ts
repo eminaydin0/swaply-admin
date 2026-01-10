@@ -223,7 +223,7 @@ export interface LocationSettings {
   history: LocationHistoryItem[];
 }
 
-export type ReportCategory = 'bug' | 'user' | 'product' | 'payment' | 'other';
+export type ReportCategory = 'bug' | 'user' | 'product' | 'payment' | 'other' | 'suggestion';
 
 export interface ReportItem {
   id: string | number;
