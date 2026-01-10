@@ -1,7 +1,8 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import Dashboard from './pages/Dashboard';
+import Login from './pages/Login';
 import Users from './pages/Users';
 import UserDetail from './pages/UserDetail';
 import Settings from './pages/Settings';
@@ -13,12 +14,29 @@ import ChatThread from './pages/ChatThread';
 import Notifications from './pages/Notifications';
 import Reports from './pages/Reports';
 import Banners from './pages/Banners';
+import { useAuthStore } from './stores/authStore';
 import './App.css';
+
+const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
+  const location = useLocation();
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+  return <>{children}</>;
+};
 
 const App: React.FC = () => {
   return (
     <Routes>
-      <Route path="/" element={<MainLayout />}>
+      <Route path="/login" element={<Login />} />
+      
+      <Route path="/" element={
+        <PrivateRoute>
+          <MainLayout />
+        </PrivateRoute>
+      }>
         <Route index element={<Dashboard />} />
         <Route path="users" element={<Users />} />
         <Route path="users/:userId" element={<UserDetail />} />
