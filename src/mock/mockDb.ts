@@ -217,7 +217,7 @@ export function createMockDb(options?: {
       role,
       onlineStatus: faker.datatype.boolean({ probability: 0.35 }),
       isPremium: faker.datatype.boolean({ probability: 0.18 }),
-      joinDate: isoDaysAgo(faker.number.int({ min: 30, max: 900 })),
+      joinDate: isoDaysAgo(faker.number.int({ min: 0, max: 900 })),
       lastActive: isoDaysAgo(faker.number.int({ min: 0, max: 10 })),
       rating: faker.number.float({ min: 3.2, max: 5, fractionDigits: 1 }),
       responseRate: faker.number.int({ min: 40, max: 100 }),
