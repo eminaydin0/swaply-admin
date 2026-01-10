@@ -116,7 +116,7 @@ const Dashboard: React.FC = () => {
   return (
     <div style={{ paddingBottom: 24 }}>
       <div style={{ marginBottom: 24 }}>
-        <Title level={2} style={{ marginTop: 0 }}>Gösterge Paneli</Title>
+        <Title level={2} style={{ marginTop: 0 }}>Dashboard</Title>
         <Text type="secondary">Sisteme ait anlık veriler ve performans metrikleri</Text>
       </div>
 

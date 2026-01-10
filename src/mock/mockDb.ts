@@ -1,4 +1,4 @@
-import { faker } from '@faker-js/faker';
+import { fakerTR as faker } from '@faker-js/faker';
 import dayjs from 'dayjs';
 import type {
   User,

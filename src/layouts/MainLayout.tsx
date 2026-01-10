@@ -82,7 +82,7 @@ const MainLayout: React.FC = () => {
             {
               key: '/',
               icon: <DashboardOutlined />,
-              label: 'Gösterge Paneli',
+              label: 'Dashboard',
             },
             {
               key: '/users',
