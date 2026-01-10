@@ -103,7 +103,7 @@ const Reports: React.FC = () => {
             return (
                 <Space>
                     <Avatar src={r.reporter.avatar} />
-                    <Space direction="vertical" size={0}>
+                    <Space orientation="vertical" size={0}>
                         <Text strong>{r.reporter.fullName}</Text>
                         <Text type="secondary" style={{fontSize: 12}}>@{r.reporter.username}</Text>
                     </Space>
@@ -124,7 +124,7 @@ const Reports: React.FC = () => {
                             <Image width={32} height={32} src={r.targetProduct.imageUrl} style={{borderRadius: 4}} /> : 
                             <div style={{width: 32, height: 32, background:'#eee', borderRadius: 4}} />
                         }
-                        <Space direction="vertical" size={0}>
+                        <Space orientation="vertical" size={0}>
                             <Text strong>Ürün: {r.targetProduct.name}</Text>
                             <Text type="secondary" style={{fontSize: 12}}>ID: {r.targetProduct.id}</Text>
                         </Space>
@@ -135,7 +135,7 @@ const Reports: React.FC = () => {
                 return (
                     <Space>
                         <Avatar size="small" src={r.targetUser.avatar} />
-                        <Space direction="vertical" size={0}>
+                        <Space orientation="vertical" size={0}>
                             <Text strong>Kullanıcı: {r.targetUser.fullName}</Text>
                             <Text type="secondary" style={{fontSize: 12}}>ID: {r.targetUser.id}</Text>
                         </Space>
@@ -183,7 +183,7 @@ const Reports: React.FC = () => {
 
   return (
     <div>
-      <Space direction="vertical" style={{ width: '100%' }} size="large">
+      <Space orientation="vertical" style={{ width: '100%' }} size="large">
         <Space style={{ justifyContent: 'space-between', width: '100%' }}>
             <Typography.Title level={3} style={{ margin: 0 }}>Raporlar</Typography.Title>
              <Input.Search
@@ -214,14 +214,14 @@ const Reports: React.FC = () => {
           width={600}
       >
         {selected && (
-            <Space direction="vertical" size="large" style={{ width: '100%' }}>
+            <Space orientation="vertical" size="large" style={{ width: '100%' }}>
                  <div style={{display:'flex', gap: 16}}>
                      {categoryLabel(selected.category).label && <Tag color={categoryLabel(selected.category).color}>{categoryLabel(selected.category).label}</Tag>}
                      {statusInfo(selected.status).label && <Tag color={statusInfo(selected.status).color}>{statusInfo(selected.status).label}</Tag>}
                  </div>
 
                  <div style={{display:'flex', gap: 24}}>
-                     <Space direction="vertical" size={4}>
+                     <Space orientation="vertical" size={4}>
                          <Text type="secondary" style={{fontSize:12}}>BİLDİREN</Text>
                          {data.find(r => r.id === selected.id)?.reporter ? (
                              <Space>
@@ -231,7 +231,7 @@ const Reports: React.FC = () => {
                          ) : <Text>—</Text>}
                      </Space>
 
-                     <Space direction="vertical" size={4}>
+                     <Space orientation="vertical" size={4}>
                          <Text type="secondary" style={{fontSize:12}}>HEDEF</Text>
                          {selected.targetProduct ? (
                              <Text>Ürün #{selected.targetProductId}</Text>

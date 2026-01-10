@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Button, Drawer, Dropdown, Space, Table, Tag, Typography, Avatar, Input, Image } from 'antd';
+import { EyeOutlined, HeartOutlined } from '@ant-design/icons';
 import type { ColumnsType, TablePaginationConfig } from 'antd/es/table';
 import { useMockStore } from '../stores/mockStore';
 import type { Product, User } from '../types/models';
@@ -68,7 +69,7 @@ const Vitrin: React.FC = () => {
                    <Image width={50} height={50} src={r.imageUrl} style={{borderRadius: 6, objectFit:'cover'}} /> :
                    <div style={{width: 50, height: 50, background:'#f5f5f5', borderRadius: 6}} />
                 }
-                <Space direction="vertical" size={2}>
+                <Space orientation="vertical" size={2}>
                     <Text strong ellipsis style={{maxWidth: 240}}>{r.name}</Text>
                     <Text type="secondary" style={{fontSize: 12}}>{r.categoryName}</Text>
                 </Space>
@@ -85,7 +86,7 @@ const Vitrin: React.FC = () => {
           return (
               <Space>
                   <Avatar src={r.owner.avatar} />
-                  <Space direction="vertical" size={0}>
+                  <Space orientation="vertical" size={0}>
                        <Text strong>{r.owner.fullName}</Text>
                        <Text type="secondary" style={{fontSize: 12}}>@{r.owner.username}</Text>
                   </Space>
@@ -156,7 +157,7 @@ const Vitrin: React.FC = () => {
 
   return (
     <div>
-      <Space direction="vertical" style={{ width: '100%' }} size="large">
+      <Space orientation="vertical" style={{ width: '100%' }} size="large">
         <Space style={{ justifyContent: 'space-between', width: '100%' }}>
             <Typography.Title level={3} style={{ margin: 0 }}>Vitrin / Premium</Typography.Title>
             <Input.Search
@@ -187,7 +188,7 @@ const Vitrin: React.FC = () => {
         width={600}
       >
         {selected && (
-            <Space direction="vertical" size="large" style={{ width: '100%' }}>
+            <Space orientation="vertical" size="large" style={{ width: '100%' }}>
                 <Space align="start" size={16}>
                     {selected.imageUrl ? 
                         <Image width={120} src={selected.imageUrl} style={{borderRadius: 8}} /> :

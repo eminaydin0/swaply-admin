@@ -29,7 +29,7 @@ const Settings: React.FC = () => {
                         />
                         <Divider />
                         <Space style={{ width: '100%', justifyContent: 'space-between' }} align="center">
-                            <Space direction="vertical" size={2}>
+                            <Space orientation="vertical" size={2}>
                                 <Text strong>Karanlık Mod</Text>
                                 <Text type="secondary" style={{ fontSize: 13 }}>
                                     Koyu renkli tema tercihini etkinleştir
@@ -52,7 +52,7 @@ const Settings: React.FC = () => {
                         />
                         <Divider />
                         
-                        <Space direction="vertical" style={{ width: '100%' }} size="middle">
+                        <Space orientation="vertical" style={{ width: '100%' }} size="middle">
                             <Alert 
                                 message="Geliştirici Modu"
                                 description={`Aktif Seed Değeri: ${seed}`}
@@ -62,7 +62,7 @@ const Settings: React.FC = () => {
                             />
                             
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                <Space direction="vertical" size={2}>
+                                <Space orientation="vertical" size={2}>
                                     <Text strong>Verileri Sıfırla</Text>
                                     <Text type="secondary" style={{ fontSize: 13 }}>
                                         Tüm tabloları yeni rastgele verilerle doldurur

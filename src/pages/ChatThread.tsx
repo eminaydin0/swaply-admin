@@ -22,7 +22,7 @@ const ChatThreadPage: React.FC = () => {
   }
 
   return (
-    <Space direction="vertical" style={{ width: '100%' }} size="large">
+    <Space orientation="vertical" style={{ width: '100%' }} size="large">
       <div style={{ display: 'flex', alignItems: 'flex-start', gap: 16 }}>
         <Button 
             icon={<ArrowLeftOutlined />} 
@@ -32,7 +32,7 @@ const ChatThreadPage: React.FC = () => {
             title="Sohbetlere Dön"
             style={{ marginTop: 4 }}
         />
-        <Space direction="vertical" size={0}>
+        <Space orientation="vertical" size={0}>
           <Typography.Title level={3} style={{ margin: 0 }}>Sohbet {String(thread.id)}</Typography.Title>
           <Typography.Text type="secondary">{thread.otherName} • {thread.otherUsername}</Typography.Text>
         </Space>
@@ -61,7 +61,7 @@ const ChatThreadPage: React.FC = () => {
                   </Space>
                 }
                 description={
-                  <Space direction="vertical" size={8} style={{ width: '100%' }}>
+                  <Space orientation="vertical" size={8} style={{ width: '100%' }}>
                     <Typography.Text>{m.text}</Typography.Text>
                     {!!m.images?.length && (
                       <Space wrap>

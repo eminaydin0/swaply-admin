@@ -35,7 +35,7 @@ const UserDetail: React.FC = () => {
   }
 
   return (
-    <Space direction="vertical" size="large" style={{ width: '100%' }}>
+    <Space orientation="vertical" size="large" style={{ width: '100%' }}>
       <div style={{ display: 'flex', alignItems: 'flex-start', gap: 16 }}>
         <Button 
             icon={<ArrowLeftOutlined />} 
@@ -45,7 +45,7 @@ const UserDetail: React.FC = () => {
             title="Listeye Dön"
             style={{ marginTop: 4 }}
         />
-        <Space direction="vertical" size={0}>
+        <Space orientation="vertical" size={0}>
             <Typography.Title level={3} style={{ margin: 0 }}>{user.fullName}</Typography.Title>
             <Typography.Text type="secondary">{user.username} • {user.email}</Typography.Text>
         </Space>
