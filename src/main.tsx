@@ -6,11 +6,11 @@ import App from './App.tsx'
 import { AppProviders } from './app/AppProviders.tsx'
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+  // <StrictMode>
     <AppProviders>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </AppProviders>
-  </StrictMode>,
+  // </StrictMode>,
 )

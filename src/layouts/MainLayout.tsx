@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from 'react';
+import React, { useState, useMemo, Suspense } from 'react';
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -47,6 +47,59 @@ const MainLayout: React.FC = () => {
 
   const isDark = themePref === 'dark';
 
+  const menuItems = useMemo(() => [
+    {
+      key: '/',
+      icon: <DashboardOutlined />,
+      label: 'Dashboard',
+    },
+    {
+      key: '/users',
+      icon: <UserOutlined />,
+      label: 'Kullanıcılar',
+    },
+    {
+      key: '/listings',
+      icon: <AppstoreOutlined />,
+      label: 'İlanlar',
+    },
+    {
+      key: '/offers',
+      icon: <RetweetOutlined />,
+      label: 'Teklifler',
+    },
+    {
+      key: '/vitrin',
+      icon: <CrownOutlined />,
+      label: 'Vitrin / Premium',
+    },
+    {
+      key: '/banners',
+      icon: <GiftOutlined />,
+      label: 'Banner Yönetimi',
+    },
+    {
+      key: '/chats',
+      icon: <MessageOutlined />,
+      label: 'Sohbetler',
+    },
+    {
+      key: '/notifications',
+      icon: <BellOutlined />,
+      label: 'Bildirimler',
+    },
+    {
+      key: '/reports',
+      icon: <FileTextOutlined />,
+      label: 'Şikayet & Öneri',
+    },
+    {
+      key: '/settings',
+      icon: <SettingOutlined />,
+      label: 'Ayarlar',
+    },
+  ], []);
+
   return (
     <Layout style={{ height: '100vh' }}>
       <Sider
@@ -83,58 +136,7 @@ const MainLayout: React.FC = () => {
           mode="inline"
           selectedKeys={[location.pathname]}
           onClick={({ key }) => navigate(key)}
-          items={[
-            {
-              key: '/',
-              icon: <DashboardOutlined />,
-              label: 'Dashboard',
-            },
-            {
-              key: '/users',
-              icon: <UserOutlined />,
-              label: 'Kullanıcılar',
-            },
-            {
-              key: '/listings',
-              icon: <AppstoreOutlined />,
-              label: 'İlanlar',
-            },
-            {
-              key: '/offers',
-              icon: <RetweetOutlined />,
-              label: 'Teklifler',
-            },
-            {
-              key: '/vitrin',
-              icon: <CrownOutlined />,
-              label: 'Vitrin / Premium',
-            },
-            {
-              key: '/banners',
-              icon: <GiftOutlined />,
-              label: 'Banner Yönetimi',
-            },
-            {
-              key: '/chats',
-              icon: <MessageOutlined />,
-              label: 'Sohbetler',
-            },
-            {
-              key: '/notifications',
-              icon: <BellOutlined />,
-              label: 'Bildirimler',
-            },
-            {
-              key: '/reports',
-              icon: <FileTextOutlined />,
-              label: 'Şikayet & Öneri',
-            },
-            {
-              key: '/settings',
-              icon: <SettingOutlined />,
-              label: 'Ayarlar',
-            },
-          ]}
+          items={menuItems}
         />
       </Sider>
       <Layout
@@ -206,7 +208,7 @@ const MainLayout: React.FC = () => {
           }}
         >
           <Suspense fallback={<Loader tip="Sayfa yükleniyor..." />}>
-             <Outlet />
+            <Outlet />
           </Suspense>
         </Content>
       </Layout>

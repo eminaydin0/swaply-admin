@@ -242,13 +242,13 @@ export function createMockDb(options?: {
   const seed = options?.seed ?? SEED;
   faker.seed(seed);
 
-  const usersCount = options?.usersCount ?? 80;
-  const productsCount = options?.productsCount ?? 400;
-  const offersCount = options?.offersCount ?? 300;
-  const threadsCount = options?.threadsCount ?? 180;
-  const messagesCount = options?.messagesCount ?? 4000;
-  const notificationsCount = options?.notificationsCount ?? 1200;
-  const reportsCount = options?.reportsCount ?? 120;
+  const usersCount = options?.usersCount ?? 40;
+  const productsCount = options?.productsCount ?? 150;
+  const offersCount = options?.offersCount ?? 80;
+  const threadsCount = options?.threadsCount ?? 50;
+  const messagesCount = options?.messagesCount ?? 300;
+  const notificationsCount = options?.notificationsCount ?? 150;
+  const reportsCount = options?.reportsCount ?? 30;
 
   const categories = CATEGORY_SEED;
 
