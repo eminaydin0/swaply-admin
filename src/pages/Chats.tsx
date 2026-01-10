@@ -186,7 +186,7 @@ const Chats: React.FC = () => {
                                         </Text>
                                         <Text type="secondary" style={{fontSize:10}}>{formatRelativeTime(item.time)}</Text>
                                     </div>}
-                                    description={<Text style={{color:'#333'}}>{item.text}</Text>}
+                                    description={<Text>{item.text}</Text>}
                                 />
                             </List.Item>
                         )}

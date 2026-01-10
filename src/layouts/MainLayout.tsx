@@ -24,19 +24,28 @@ const MainLayout: React.FC = () => {
   const themePref = useThemeStore((s) => s.theme);
   const toggleTheme = useThemeStore((s) => s.toggleTheme);
   const {
-    token: { colorBgContainer, borderRadiusLG },
+    token: { colorBgContainer, borderRadiusLG, colorTextBase, colorBgLayout },
   } = theme.useToken();
   
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Sync body background with theme
+  React.useEffect(() => {
+    document.body.style.background = colorBgLayout;
+    document.body.style.color = colorTextBase;
+  }, [colorBgLayout, colorTextBase]);
+
   const siderWidth = 220;
   const siderCollapsedWidth = 80;
   const headerHeight = 64;
 
+  const isDark = themePref === 'dark';
+
   return (
     <Layout style={{ height: '100vh' }}>
       <Sider
+        theme={isDark ? 'dark' : 'light'}
         trigger={null}
         collapsible
         collapsed={collapsed}
@@ -49,13 +58,23 @@ const MainLayout: React.FC = () => {
           bottom: 0,
           overflow: 'auto',
           zIndex: 100,
+          borderRight: isDark ? 'none' : '1px solid #f0f0f0'
         }}
       >
-        <div style={{ height: 32, margin: 16, background: 'rgba(255, 255, 255, 0.2)', textAlign: 'center', color: '#fff', lineHeight: '32px' }}>
+        <div style={{ 
+            height: 32, 
+            margin: 16, 
+            background: isDark ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.06)', 
+            textAlign: 'center', 
+            color: isDark ? '#fff' : '#001529', 
+            lineHeight: '32px',
+            fontWeight: 'bold',
+            borderRadius: 6
+        }}>
              {collapsed ? 'SW' : 'SWAPLY ADMIN'}
         </div>
         <Menu
-          theme={themePref === 'dark' ? 'dark' : 'light'}
+          theme={isDark ? 'dark' : 'light'}
           mode="inline"
           selectedKeys={[location.pathname]}
           onClick={({ key }) => navigate(key)}

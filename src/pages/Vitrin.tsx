@@ -120,12 +120,12 @@ const Vitrin: React.FC = () => {
       width: 150,
       render: (_v, r) => (
          <Space size={12}>
-            <span title="Görüntülenme" style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#666' }}>
-               👁 {r.viewCount}
-            </span>
-            <span title="Favori" style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#666' }}>
-               ❤️ {r.favoritesCount}
-            </span>
+            <Text type="secondary" title="Görüntülenme" style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+               <EyeOutlined /> {r.viewCount}
+            </Text>
+            <Text type="secondary" title="Favori" style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+               <HeartOutlined /> {r.favoritesCount}
+            </Text>
          </Space>
       ),
       sorter: (a, b) => a.viewCount - b.viewCount,

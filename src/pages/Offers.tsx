@@ -260,7 +260,7 @@ const Offers: React.FC = () => {
                                   <Image width={80} src={selected.offeredProduct.imageUrl || ''} style={{borderRadius: 8}} />
                                   <div>
                                       <div style={{fontWeight:600}}>{selected.offeredProduct.name}</div>
-                                      <div style={{color:'#666'}}>{selected.offeredProduct.categoryName}</div>
+                                      <Text type="secondary">{selected.offeredProduct.categoryName}</Text>
                                   </div>
                               </Space> : <Text type="secondary">Ürün Yok</Text>
                            }
@@ -274,7 +274,7 @@ const Offers: React.FC = () => {
                                   <Image width={80} src={selected.targetProduct.imageUrl || ''} style={{borderRadius: 8}} />
                                   <div style={{textAlign:'right'}}>
                                       <div style={{fontWeight:600}}>{selected.targetProduct.name}</div>
-                                      <div style={{color:'#666'}}>{selected.targetProduct.categoryName}</div>
+                                      <Text type="secondary">{selected.targetProduct.categoryName}</Text>
                                   </div>
                               </Space> : <Text type="secondary">Ürün Yok</Text>
                            }
