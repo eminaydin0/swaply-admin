@@ -13,10 +13,12 @@ import {
   SettingOutlined,
   BulbOutlined,
   GiftOutlined,
+  LogoutOutlined,
 } from '@ant-design/icons';
-import { Layout, Menu, Button, Space, Switch, Typography, theme } from 'antd';
+import { Layout, Menu, Button, Space, Switch, Typography, theme, Modal } from 'antd';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useThemeStore } from '../stores/themeStore';
+import { useAuthStore } from '../stores/authStore';
 
 const { Header, Sider, Content } = Layout;
 
@@ -24,6 +26,7 @@ const MainLayout: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const themePref = useThemeStore((s) => s.theme);
   const toggleTheme = useThemeStore((s) => s.toggleTheme);
+  const logout = useAuthStore((s) => s.logout);
   const {
     token: { colorBgContainer, borderRadiusLG, colorTextBase, colorBgLayout },
   } = theme.useToken();
@@ -170,6 +173,25 @@ const MainLayout: React.FC = () => {
               <Typography.Text type="secondary">{themePref === 'dark' ? 'Koyu' : 'Açık'}</Typography.Text>
               <Switch checked={themePref === 'dark'} onChange={() => toggleTheme()} />
             </Space>
+             <Button 
+                danger 
+                type="text" 
+                icon={<LogoutOutlined />} 
+                onClick={() => {
+                   Modal.confirm({
+                       title: 'Çıkış Yap',
+                       content: 'Oturumu kapatmak istediğinize emin misiniz?',
+                       okText: 'Evet',
+                       cancelText: 'Vazgeç',
+                       onOk: () => {
+                           logout();
+                           navigate('/login');
+                       }
+                   })
+                }}
+            >
+                Çıkış
+            </Button>
           </Space>
         </Header>
         <Content
