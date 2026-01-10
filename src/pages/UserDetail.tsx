@@ -1,10 +1,12 @@
 import React, { useMemo } from 'react';
-import { Card, Descriptions, Space, Tabs, Tag, Typography } from 'antd';
-import { useParams } from 'react-router-dom';
+import { Button, Card, Descriptions, Space, Tabs, Tag, Typography } from 'antd';
+import { ArrowLeftOutlined } from '@ant-design/icons';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useMockStore } from '../stores/mockStore';
 
 const UserDetail: React.FC = () => {
   const { userId } = useParams();
+  const navigate = useNavigate();
   const db = useMockStore((s) => s.db);
 
   const user = useMemo(() => db.users.find((u) => String(u.id) === String(userId)), [db.users, userId]);
@@ -34,10 +36,20 @@ const UserDetail: React.FC = () => {
 
   return (
     <Space direction="vertical" size="large" style={{ width: '100%' }}>
-      <Space direction="vertical" size={0}>
-        <Typography.Title level={3} style={{ margin: 0 }}>{user.fullName}</Typography.Title>
-        <Typography.Text type="secondary">{user.username} • {user.email}</Typography.Text>
-      </Space>
+      <div style={{ display: 'flex', alignItems: 'flex-start', gap: 16 }}>
+        <Button 
+            icon={<ArrowLeftOutlined />} 
+            onClick={() => navigate('/users')} 
+            shape="circle"
+            size="large"
+            title="Listeye Dön"
+            style={{ marginTop: 4 }}
+        />
+        <Space direction="vertical" size={0}>
+            <Typography.Title level={3} style={{ margin: 0 }}>{user.fullName}</Typography.Title>
+            <Typography.Text type="secondary">{user.username} • {user.email}</Typography.Text>
+        </Space>
+      </div>
 
       <Tabs
         items={[
