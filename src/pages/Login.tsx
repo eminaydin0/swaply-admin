@@ -3,7 +3,8 @@ import { Card, Form, Input, Button, Typography, Checkbox, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../stores/authStore';
-import logo from '../assets/logo.png'; // Assuming logo is here based on previous turns
+import logo from '../assets/logo.png'; 
+import Loader from '../components/Loader';
 
 const { Title, Text } = Typography;
 
@@ -37,6 +38,8 @@ const Login: React.FC = () => {
       background: '#f0f2f5',
       flexDirection: 'column'
     }}>
+      {loading && <Loader fullScreen tip="Oturum açılıyor..." />}
+      
       <div style={{ marginBottom: 40, textAlign: 'center' }}>
           <img src={logo} alt="Swaply" style={{ height: 120, marginBottom: 24 }} />
           <Title level={3} style={{ margin: 0, color: '#333' }}>Swaply Yönetim Paneli</Title>

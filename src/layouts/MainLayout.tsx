@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -19,6 +19,7 @@ import { Layout, Menu, Button, Space, Switch, Typography, theme, Modal } from 'a
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useThemeStore } from '../stores/themeStore';
 import { useAuthStore } from '../stores/authStore';
+import Loader from '../components/Loader';
 
 const { Header, Sider, Content } = Layout;
 
@@ -204,7 +205,9 @@ const MainLayout: React.FC = () => {
             borderRadius: borderRadiusLG,
           }}
         >
-          <Outlet />
+          <Suspense fallback={<Loader tip="Sayfa yükleniyor..." />}>
+             <Outlet />
+          </Suspense>
         </Content>
       </Layout>
     </Layout>
